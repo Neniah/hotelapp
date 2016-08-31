@@ -13,6 +13,14 @@ class CreateTableReservationNights extends Migration
     public function up()
     {
         //
+        Schema::create('reservations_nights', function($table){
+          $table->increments('id');
+          $table->float('rate');
+          $table->date('day');
+          $table->integer('room_type_id');
+          $table->integer('reservations_id');
+          $table->timestamps();
+        });
     }
 
     /**
@@ -23,5 +31,6 @@ class CreateTableReservationNights extends Migration
     public function down()
     {
         //
+        Schema::drop('reservations_nights');
     }
 }
